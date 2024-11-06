@@ -1,0 +1,1 @@
+nuitka --standalone --include-package-data=ursina --windows-force-stderr-spec={PROGRAM}\..\error_log.txt --include-data-dir={PROGRAM}\..\models_compressed=models_compressed --include-data-dir={PROGRAM}\..\resources=resources --windows-icon-from-ico={PROGRAM}\..\resources\steering_wheel.ico --windows-console-mode=disable main.py
