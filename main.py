@@ -1,5 +1,7 @@
+from pathlib import PureWindowsPath, PurePath
 
 from ursina import *
+from ursina.application import asset_folder, package_folder
 from ursina.shaders import lit_with_shadows_shader
 from car import Car
 from checkpoint import Checkpoint
@@ -7,14 +9,19 @@ from hud import HUD
 from worldgen import generate_trees
 from random import random
 
-app = Ursina(title=None)
+
+app = Ursina(title='Radical Racer')
 window.cog_button.visible_setter(False)
 window.entity_counter.visible_setter(False)
 window.collider_counter.visible_setter(False)
 #window.fps_counter.visible_setter(False)
-Text.default_font = 'resources\ZeroCool.ttf'
+Text.default_font = 'resources\\ZeroCool.ttf'
 Entity.default_shader = lit_with_shadows_shader
-window.fullscreen = True
+window.windowed_size = window.fullscreen_size
+window.windowed_position = (0,-1)
+window.fullscreen = False
+window.vsync = False
+
 Audio.volume_multiplier = .3
 ground = Entity(model='plane', scale=10000, texture='grass', texture_scale=(400, 400))
 
@@ -135,6 +142,7 @@ def update():
     race_logic()
 
     #if held_keys['l']:
+    #    checkpoint.race_stage=3
     #    car.y += time.dt * 20
 
 app.run()

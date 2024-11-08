@@ -1,5 +1,4 @@
 from ursina import *
-from ursina.color import black
 
 
 class Car(Entity):
